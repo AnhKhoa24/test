@@ -99,7 +99,7 @@ public:
         age = N->get_age();
         weight = N ->get_weight();
         height = N ->get_height();
-
+        std:: cout<< N->get_name();
         th();
     }
     void th()
