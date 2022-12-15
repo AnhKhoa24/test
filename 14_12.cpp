@@ -92,8 +92,8 @@ private:
     float weight;
     float height;
 public:
-    maykhamsuc();
-    ~maykhamsuc();
+    maykhamsuc(){}
+    ~maykhamsuc(){}
     void haha(sinh_vien *N)
     {
         age = N->get_age();
