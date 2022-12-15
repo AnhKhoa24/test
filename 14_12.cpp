@@ -6,7 +6,7 @@ class sinh_vien
 {
 
 public:
-    sinh_vien(std::string n, int a, std::string gt) : name(n), age(a), gioi_tinh(gt) {}
+    sinh_vien(std::string n, int a, std::string gt, float h, float w) : name(n), age(a), gioi_tinh(gt), height(h), weight(w) {}
 
     ~sinh_vien()
     {
@@ -59,7 +59,7 @@ protected:
 class Sv_gioi : public sinh_vien
 {
 public:
-    Sv_gioi(std::string n, int a, std::string gt) : sinh_vien(n, a, gt) {}
+    // Sv_gioi(std::string n, int a, std::string gt) : sinh_vien(n, a, gt) {}
     void sua_do()
     {
         std::cout << name << " said: ";
@@ -75,7 +75,7 @@ private:
 class Sv_ngu : public sinh_vien
 {
 public:
-    Sv_ngu(std::string n, int a, std::string gt) : sinh_vien(n, a, gt) {}
+    // Sv_ngu(std::string n, int a, std::string gt) : sinh_vien(n, a, gt) {}
     void thua_ly_do()
     {
         std::cout << name << " said: ";
@@ -92,7 +92,8 @@ private:
     float weight;
     float height;
 public:
-    ~maykhamsuc(){}
+    maykhamsuc();
+    ~maykhamsuc();
     void haha(sinh_vien *N)
     {
         age = N->get_age();
@@ -103,14 +104,12 @@ public:
     }
     void th()
     {
-        if(age >= 18)
-        {
-            std::cout<<"cau thu chuyen nghiep"<<std::endl;
-        }
-        else
-        {
-            std:: cout <<"cau thu tre"<<std::endl;
-        }
+        float bmi = weight/(height * height);
+        if(bmi >= 18.5 && bmi <25) std::cout<<" binh thuong"<<std::endl;
+        if(bmi >= 17 && bmi <18.5) std::cout<<" gay <1>"<<std::endl;
+        if(bmi >= 16 && bmi <17) std::cout<<" gay <2>"<<std::endl;
+        if(bmi < 16) std::cout<<" gay vai ca dai!"<<std::endl;
+        if(bmi >25) std::cout<<" noi chung la map vcl, lv cc gi nua!!!"<< std::endl;
     }
 
 };
@@ -118,5 +117,12 @@ public:
 int main()
 {
 
+    sinh_vien *khoa = new sinh_vien("Huynh Anh Khoa", 19, "Nam", 1.7, 55);
+    maykhamsuc *h = new maykhamsuc;
+    h->haha(khoa);
+
+
+    delete h;
+    delete khoa;
     return 0;
 }
