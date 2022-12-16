@@ -120,6 +120,8 @@ int main()
     sinh_vien *khoa = new sinh_vien("Huynh Anh Khoa", 19, "Nam", 1.7, 55);
     maykhamsuc *h = new maykhamsuc;
     h->haha(khoa);
+    
+    ///huynhf anh khoa
 
 
     delete h;
